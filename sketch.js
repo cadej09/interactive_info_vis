@@ -29,8 +29,9 @@ function draw() {
   fill("white");
   
   rect(width/4, shapeHeight, width/2);
-  textSize(20);
+  textSize(24);
   fill("black");
+  if (shapeHeight >= horizon) fill('#e5e7eb');
   text('Hi! My name is Cade Jeong', currentWidth/2, shapeHeight/2);
   
 
@@ -41,7 +42,10 @@ function draw() {
 
   //grass
 
-  fill("lavender");
+  noStroke();
+fill('#f5f3ff');               
+if (shapeHeight >= horizon) fill('#1f2937');
+
 
   rect(0, horizon, width, height);
 
