@@ -137,3 +137,58 @@ registerSketch('sk3', function (p) {
     let flowText = isDaytime ? 'Day Flow →' : '← Night Flow';
     p.text(flowText, 400, pipeY + 20);
   }
+
+  function drawDayNightIndicator(isDaytime) {
+    let x = 400;
+    let y = 150;
+    
+    if (isDaytime) {
+      // Draw sun
+      p.fill(255, 220, 0);
+      p.noStroke();
+      p.ellipse(x, y, 60, 60);
+      
+      // Sun rays
+      p.stroke(255, 220, 0);
+      p.strokeWeight(3);
+      for (let i = 0; i < 8; i++) {
+        let angle = (p.TWO_PI / 8) * i;
+        let x1 = x + p.cos(angle) * 40;
+        let y1 = y + p.sin(angle) * 40;
+        let x2 = x + p.cos(angle) * 55;
+        let y2 = y + p.sin(angle) * 55;
+        p.line(x1, y1, x2, y2);
+      }
+      
+      p.noStroke();
+      p.fill(100);
+      p.textAlign(p.CENTER, p.TOP);
+      p.textSize(18);
+      p.text('DAYTIME', x, y + 50);
+    } else {
+      // Draw moon
+      p.fill(220, 220, 240);
+      p.noStroke();
+      p.ellipse(x, y, 60, 60);
+      
+      // Moon craters
+      p.fill(200, 200, 220);
+      p.ellipse(x - 10, y - 10, 15, 15);
+      p.ellipse(x + 15, y + 5, 12, 12);
+      p.ellipse(x - 5, y + 15, 10, 10);
+      
+      // Stars
+      p.fill(255, 255, 150);
+      for (let i = 0; i < 5; i++) {
+        let starX = x + (i - 2) * 40;
+        let starY = y + p.sin(i) * 30;
+        drawStar(starX, starY, 3, 6, 5);
+      }
+      
+      p.noStroke();
+      p.fill(100);
+      p.textAlign(p.CENTER, p.TOP);
+      p.textSize(18);
+      p.text('NIGHTTIME', x, y + 50);
+    }
+  }
