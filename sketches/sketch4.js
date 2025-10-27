@@ -242,3 +242,36 @@ registerSketch('sk4', function (p) {
     }
     p.noStroke();
   }
+
+   function drawMorningRoutineIcon() {
+    // Person with toothbrush and coffee
+    p.fill(255, 220, 177);
+    p.ellipse(0, -10, 25, 25); // Head
+    p.fill(100, 150, 200);
+    p.rect(-10, 5, 20, 30); // Body
+    
+    // Arms
+    p.stroke(255, 220, 177);
+    p.strokeWeight(5);
+    p.line(-10, 10, -20, 5); // Left arm
+    p.line(10, 10, 20, 5);   // Right arm
+    p.noStroke();
+    
+    // Toothbrush
+    p.fill(200);
+    p.rect(-25, 0, 3, 15);
+    p.fill(0, 200, 255);
+    p.rect(-26, 0, 5, 5);
+    
+    // Coffee cup
+    p.fill(139, 69, 19);
+    p.rect(18, 3, 12, 15);
+    p.fill(150, 75, 0);
+    p.rect(18, 3, 12, 8);
+    
+    // Steam
+    p.stroke(150);
+    p.strokeWeight(2);
+    p.noFill();
+    p.bezier(24, 0, 22, -5, 26, -8, 24, -12);
+  }
