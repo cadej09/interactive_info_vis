@@ -131,4 +131,22 @@ registerSketch('sk4', function (p) {
     p.pop();
   }
 
-  
+  function drawCurrentActivityCenter(currentTime) {
+    if (!currentActivity) return;
+    
+    let centerX = 400;
+    let centerY = 400;
+    
+    // Draw activity name
+    p.fill(50);
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(32);
+    p.textStyle(p.BOLD);
+    p.text(currentActivity.name, centerX, centerY - 100);
+    
+    // Draw character doing the activity
+    p.push();
+    p.translate(centerX, centerY);
+    drawActivityIcon(currentActivity.icon, 0, 0, 1.5);
+    p.pop();
+  }
