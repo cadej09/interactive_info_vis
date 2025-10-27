@@ -253,3 +253,43 @@ registerSketch('sk3', function (p) {
     p.fill(progressColor);
     p.rect(barX, barY, barWidth * progress, barHeight, 5);
   }
+
+  function updateWaterDrops(isDaytime) {
+    // Add new drops occasionally
+    if (p.frameCount % 15 === 0) {
+      let drop = {
+        x: isDaytime ? 350 : 450,
+        y: 450,
+        vx: isDaytime ? 2 : -2,
+        vy: 0,
+        size: p.random(4, 8)
+      };
+      waterDrops.push(drop);
+    }
+    
+    // Update existing drops
+    for (let i = waterDrops.length - 1; i >= 0; i--) {
+      let drop = waterDrops[i];
+      drop.x += drop.vx;
+      drop.y += drop.vy;
+      drop.vy += 0.3; // Gravity
+      
+      // Remove drops that are out of bounds
+      if (drop.y > 800 || drop.x < 0 || drop.x > 800) {
+        waterDrops.splice(i, 1);
+      }
+    }
+  }
+
+  function drawWaterDrops() {
+    p.noStroke();
+    p.fill(100, 150, 255, 180);
+    for (let drop of waterDrops) {
+      p.ellipse(drop.x, drop.y, drop.size, drop.size);
+    }
+  }
+  
+  p.windowResized = function () {
+    p.resizeCanvas(800, 800);
+  };
+});
