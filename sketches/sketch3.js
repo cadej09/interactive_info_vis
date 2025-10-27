@@ -192,3 +192,18 @@ registerSketch('sk3', function (p) {
       p.text('NIGHTTIME', x, y + 50);
     }
   }
+
+  function drawStar(x, y, radius1, radius2, npoints) {
+    let angle = p.TWO_PI / npoints;
+    let halfAngle = angle / 2.0;
+    p.beginShape();
+    for (let a = -p.PI / 2; a < p.TWO_PI - p.PI / 2; a += angle) {
+      let sx = x + p.cos(a) * radius2;
+      let sy = y + p.sin(a) * radius2;
+      p.vertex(sx, sy);
+      sx = x + p.cos(a + halfAngle) * radius1;
+      sy = y + p.sin(a + halfAngle) * radius1;
+      p.vertex(sx, sy);
+    }
+    p.endShape(p.CLOSE);
+  }
