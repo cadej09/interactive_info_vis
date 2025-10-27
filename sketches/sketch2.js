@@ -1,14 +1,22 @@
 // Instance-mode sketch for tab 2
 registerSketch('sk2', function (p) {
+  let colorStops = [];
+  
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-  };
-  p.draw = function () {
-    p.background(220);
-    p.fill(100, 150, 240);
-    p.textSize(32);
-    p.textAlign(p.CENTER, p.CENTER);
-    p.text('HWK #4. A', p.width / 2, p.height / 2);
-  };
-  p.windowResized = function () { p.resizeCanvas(p.windowWidth, p.windowHeight); };
+    p.createCanvas(800, 800);
+    p.textFont('Arial');
+    
+    // Define color stops for the gradient (hour: color)
+    colorStops = [
+      { hour: 0, color: [25, 25, 112], label: 'Midnight', temp: 'Cold' },      // Midnight blue
+      { hour: 3, color: [0, 0, 139], label: '3 AM', temp: 'Coldest' },         // Dark blue
+      { hour: 6, color: [135, 206, 250], label: 'Dawn', temp: 'Cool' },        // Sky blue
+      { hour: 9, color: [255, 255, 100], label: 'Morning', temp: 'Warm' },     // Yellow
+      { hour: 12, color: [255, 140, 0], label: 'Noon', temp: 'Hot' },          // Orange
+      { hour: 15, color: [255, 69, 0], label: 'Afternoon', temp: 'Hot' },      // Red-orange
+      { hour: 18, color: [255, 105, 180], label: 'Sunset', temp: 'Warm' },     // Pink
+      { hour: 21, color: [138, 43, 226], label: 'Evening', temp: 'Cool' },     // Purple
+      { hour: 24, color: [25, 25, 112], label: 'Midnight', temp: 'Cold' }      // Back to midnight blue
+    ];
+  };};
 });
