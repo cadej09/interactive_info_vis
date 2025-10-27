@@ -24,3 +24,32 @@ registerSketch('sk4', function (p) {
       {start: 23, end: 24, name: "Going to Bed", icon: "bed", color: [70, 70, 140], bgColor: [40, 40, 80]}
     ];
   };
+
+    
+  p.draw = function () {
+    // Get current time
+    let h = p.hour();
+    let m = p.minute();
+    let s = p.second();
+    let currentTime = h + m / 60 + s / 3600;
+    
+    // Find current activity
+    currentActivity = findCurrentActivity(currentTime);
+    
+    // Draw background based on current activity
+    if (currentActivity) {
+      let bgColor = p.color(currentActivity.bgColor);
+      p.background(bgColor);
+    } else {
+      p.background(240);
+    }
+    
+    // Draw 24-hour circle with all activities
+    drawActivityCircle(currentTime);
+    
+    // Draw current activity in center
+    drawCurrentActivityCenter(currentTime);
+    
+    // Draw time display
+    drawTimeDisplay(h, m, s);
+  };
