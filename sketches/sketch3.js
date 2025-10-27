@@ -9,7 +9,7 @@ registerSketch('sk3', function (p) {
   
   p.draw = function () {
     p.background(240, 248, 255); // Light blue background
-    
+
     // Get current time
     let h = p.hour();
     let m = p.minute();
@@ -30,3 +30,30 @@ registerSketch('sk3', function (p) {
       progress = p.map(nightHour + m / 60 + s / 3600, 18, 30, 0, 1);
       progress = p.constrain(progress, 0, 1);
     }
+
+    // Calculate water levels
+    // During day: left starts full (1) and empties to (0)
+    // During night: left starts empty (0) and fills to (1)
+    let leftWaterLevel = isDaytime ? (1 - progress) : progress;
+    let rightWaterLevel = 1 - leftWaterLevel;
+    
+    // Draw buckets
+    drawBucket(150, 250, 200, 400, leftWaterLevel, 'LEFT');
+    drawBucket(450, 250, 200, 400, rightWaterLevel, 'RIGHT');
+    
+    // Draw flow indicator
+    drawFlowIndicator(isDaytime, progress);
+    
+    // Draw sun/moon indicator
+    drawDayNightIndicator(isDaytime);
+    
+    // Draw time display
+    drawTimeDisplay(h, m, s, isDaytime);
+    
+    // Draw phase label
+    drawPhaseLabel(isDaytime, progress);
+    
+    // Update and draw water drops
+    updateWaterDrops(isDaytime);
+    drawWaterDrops();
+  };
