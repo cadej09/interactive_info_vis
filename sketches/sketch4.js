@@ -403,3 +403,23 @@ registerSketch('sk4', function (p) {
     p.ellipse(-15, -15, 5, 8);
     p.ellipse(15, -15, 5, 8);
   }
+
+  function drawRelaxIcon() {
+    // Couch
+    p.fill(139, 69, 19);
+    p.rect(-35, 15, 70, 20, 5);
+    p.rect(-35, 10, 10, 25);
+    p.rect(25, 10, 10, 25);
+    
+    // Person relaxing
+    p.fill(255, 220, 177);
+    p.ellipse(-10, 0, 20, 20); // Head
+    p.fill(100, 150, 200);
+    p.rect(-20, 10, 30, 15); // Body lying
+    
+    // TV
+    p.fill(50);
+    p.rect(-15, -25, 30, 20);
+    p.fill(100, 150, 255);
+    p.rect(-13, -23, 26, 16);
+  }
