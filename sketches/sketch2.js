@@ -18,7 +18,7 @@ registerSketch('sk2', function (p) {
       { hour: 21, color: [138, 43, 226], label: 'Evening', temp: 'Cool' },     // Purple
       { hour: 24, color: [25, 25, 112], label: 'Midnight', temp: 'Cold' }      // Back to midnight blue
     ];
-  };};
+  };
 
   p.draw = function () {
     p.background(30);
