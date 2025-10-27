@@ -96,3 +96,17 @@ registerSketch('sk3', function (p) {
       let hourLabel = (4 - i) * 3; // 12, 9, 6, 3, 0 hours
       p.text(hourLabel + 'h', x - 10, markerY);
     }
+
+    // Draw percentage
+    p.noStroke();
+    p.fill(60);
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(24);
+    let percentage = Math.round(waterLevel * 100);
+    p.text(percentage + '%', x + w / 2, y + h / 2);
+    
+    // Draw bucket label
+    p.textSize(16);
+    p.fill(100);
+    p.text(label, x + w / 2, y - 20);
+  }
