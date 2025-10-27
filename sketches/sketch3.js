@@ -207,3 +207,18 @@ registerSketch('sk3', function (p) {
     }
     p.endShape(p.CLOSE);
   }
+
+
+  function drawTimeDisplay(h, m, s, isDaytime) {
+    // Display current time
+    p.fill(60);
+    p.noStroke();
+    p.textAlign(p.CENTER, p.TOP);
+    p.textSize(36);
+    let timeString = p.nf(h, 2) + ':' + p.nf(m, 2) + ':' + p.nf(s, 2);
+    p.text(timeString, 400, 700);
+    
+    let period = h >= 12 ? 'PM' : 'AM';
+    p.textSize(20);
+    p.text(period, 400, 745);
+  }
