@@ -50,4 +50,20 @@ registerSketch('sk2', function (p) {
     let barY = 300;
     let barWidth = 600;
     let barHeight = 200;
+
+    // Draw gradient by interpolating between color stops
+    p.noStroke();
+    for (let i = 0; i < barWidth; i++) {
+      let mappedHour = p.map(i, 0, barWidth, 0, 24);
+      let col = getColorForHour(mappedHour);
+      p.fill(col);
+      p.rect(barX + i, barY, 1, barHeight);
+    }
+    
+    // Draw border
+    p.noFill();
+    p.stroke(255);
+    p.strokeWeight(3);
+    p.rect(barX, barY, barWidth, barHeight);
+  }
 });
