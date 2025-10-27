@@ -62,3 +62,55 @@ registerSketch('sk4', function (p) {
     }
     return activities[0]; // Default to first activity
   }
+
+  function drawActivityCircle(currentTime) {
+    let centerX = 400;
+    let centerY = 400;
+    let radius = 280;
+    
+    // Draw each activity as a slice in the circle
+    p.push();
+    p.translate(centerX, centerY);
+    
+    for (let i = 0; i < activities.length; i++) {
+      let activity = activities[i];
+      let startAngle = p.map(activity.start, 0, 24, 0, p.TWO_PI) - p.HALF_PI;
+      let endAngle = p.map(activity.end, 0, 24, 0, p.TWO_PI) - p.HALF_PI;
+      let midAngle = (startAngle + endAngle) / 2;
+      
+      // Check if this is the current activity
+      let isCurrent = (currentTime >= activity.start && currentTime < activity.end);
+      
+      // Draw activity arc
+      p.noStroke();
+      if (isCurrent) {
+        p.fill(activity.color[0], activity.color[1], activity.color[2], 255);
+      } else {
+        p.fill(activity.color[0], activity.color[1], activity.color[2], 100);
+      }
+      
+      let arcRadius = isCurrent ? radius + 20 : radius;
+      p.arc(0, 0, arcRadius * 2, arcRadius * 2, startAngle, endAngle, p.PIE);
+      
+      // Draw activity label and icon
+      let labelRadius = radius + 50;
+      let labelX = p.cos(midAngle) * labelRadius;
+      let labelY = p.sin(midAngle) * labelRadius;
+      
+      p.push();
+      p.translate(labelX, labelY);
+      
+      if (isCurrent) {
+        p.fill(255);
+        p.textSize(14);
+        p.textStyle(p.BOLD);
+      } else {
+        p.fill(100);
+        p.textSize(11);
+        p.textStyle(p.NORMAL);
+      }
+      
+      p.textAlign(p.CENTER, p.CENTER);
+      p.text(activity.name, 0, 0);
+      p.pop();
+    }
