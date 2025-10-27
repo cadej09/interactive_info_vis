@@ -79,4 +79,32 @@ registerSketch('sk2', function (p) {
     }
     return p.color(colorStops[0].color);
   }
+
+  function drawTimeMarkers() {
+    let barX = 100;
+    let barY = 300;
+    let barWidth = 600;
+    let barHeight = 200;
+    
+    // Draw markers for key hours (0, 6, 12, 18, 24)
+    p.stroke(255);
+    p.strokeWeight(2);
+    p.fill(255);
+    p.textAlign(p.CENTER, p.TOP);
+    p.textSize(14);
+    
+    for (let i = 0; i <= 24; i += 6) {
+      let x = p.map(i, 0, 24, barX, barX + barWidth);
+      
+      // Draw tick mark
+      p.line(x, barY, x, barY - 10);
+      p.line(x, barY + barHeight, x, barY + barHeight + 10);
+      
+      // Draw hour label
+      let hourLabel = i === 24 ? '12 AM' : (i === 0 ? '12 AM' : (i < 12 ? i + ' AM' : (i === 12 ? '12 PM' : (i - 12) + ' PM')));
+      p.text(hourLabel, x, barY + barHeight + 20);
+    }
+  }
+
+  
 });
