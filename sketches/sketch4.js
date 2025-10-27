@@ -275,3 +275,27 @@ registerSketch('sk4', function (p) {
     p.noFill();
     p.bezier(24, 0, 22, -5, 26, -8, 24, -12);
   }
+
+   function drawCommuteIcon() {
+    // Simple car
+    p.fill(200, 50, 50);
+    p.rect(-25, 5, 50, 20, 5);
+    p.rect(-15, -5, 30, 15, 5);
+    
+    // Windows
+    p.fill(150, 200, 255);
+    p.rect(-12, -3, 10, 10);
+    p.rect(2, -3, 10, 10);
+    
+    // Wheels
+    p.fill(50);
+    p.ellipse(-15, 25, 12, 12);
+    p.ellipse(15, 25, 12, 12);
+    
+    // Motion lines
+    p.stroke(100);
+    p.strokeWeight(2);
+    p.line(-35, 10, -45, 10);
+    p.line(-35, 20, -45, 20);
+    p.noStroke();
+  }
