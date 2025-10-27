@@ -194,3 +194,22 @@ registerSketch('sk4', function (p) {
     
     p.pop();
   }
+
+  function drawSleepingIcon() {
+    // Bed
+    p.fill(139, 69, 19);
+    p.rect(-40, 20, 80, 10);
+    
+    // Person lying down
+    p.fill(255, 220, 177);
+    p.ellipse(0, 0, 30, 30); // Head
+    p.fill(100, 150, 200);
+    p.rect(-20, 5, 40, 20); // Body (blanket)
+    
+    // ZZZ
+    p.fill(100);
+    p.textSize(20);
+    p.text('Z', 25, -15);
+    p.text('Z', 30, -25);
+    p.text('Z', 35, -35);
+  }
