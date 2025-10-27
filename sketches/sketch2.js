@@ -130,5 +130,20 @@ function drawCurrentTimeIndicator(currentTime) {
     p.fill(255, 255, 255, 50);
     p.ellipse(x, barY + barHeight / 2, 50, 50);
   }
+
+  function drawTimeDisplay(h, m, s) {
+    // Display digital time at top
+    p.fill(255);
+    p.noStroke();
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(48);
+    let timeString = p.nf(h, 2) + ':' + p.nf(m, 2) + ':' + p.nf(s, 2);
+    p.text(timeString, 400, 150);
+    
+    // Display period
+    p.textSize(24);
+    let period = h >= 12 ? 'PM' : 'AM';
+    p.text(period, 400, 200);
+  }
   
 });
