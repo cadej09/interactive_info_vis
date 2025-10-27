@@ -110,3 +110,30 @@ registerSketch('sk3', function (p) {
     p.fill(100);
     p.text(label, x + w / 2, y - 20);
   }
+
+   function drawFlowIndicator(isDaytime, progress) {
+    // Draw pipe connecting buckets
+    let pipeY = 450;
+    p.stroke(120);
+    p.strokeWeight(6);
+    p.line(350, pipeY, 450, pipeY);
+    
+    // Draw arrow showing direction
+    let arrowX = 400;
+    let arrowDirection = isDaytime ? 1 : -1; // Right for day, left for night
+    
+    p.fill(120);
+    p.noStroke();
+    p.push();
+    p.translate(arrowX, pipeY);
+    p.rotate(arrowDirection === 1 ? 0 : p.PI);
+    p.triangle(0, -10, 0, 10, 20, 0);
+    p.pop();
+    
+    // Draw flow label
+    p.fill(80);
+    p.textAlign(p.CENTER, p.TOP);
+    p.textSize(14);
+    let flowText = isDaytime ? 'Day Flow →' : '← Night Flow';
+    p.text(flowText, 400, pipeY + 20);
+  }
