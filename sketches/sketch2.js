@@ -66,4 +66,17 @@ registerSketch('sk2', function (p) {
     p.strokeWeight(3);
     p.rect(barX, barY, barWidth, barHeight);
   }
+
+  function getColorForHour(hour) {
+    // Find the two color stops to interpolate between
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (hour >= colorStops[i].hour && hour <= colorStops[i + 1].hour) {
+        let t = p.map(hour, colorStops[i].hour, colorStops[i + 1].hour, 0, 1);
+        let c1 = p.color(colorStops[i].color);
+        let c2 = p.color(colorStops[i + 1].color);
+        return p.lerpColor(c1, c2, t);
+      }
+    }
+    return p.color(colorStops[0].color);
+  }
 });
