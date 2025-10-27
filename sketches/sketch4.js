@@ -299,3 +299,64 @@ registerSketch('sk4', function (p) {
     p.line(-35, 20, -45, 20);
     p.noStroke();
   }
+
+   function drawWorkIcon() {
+    // Desk
+    p.fill(139, 69, 19);
+    p.rect(-30, 10, 60, 5);
+    p.rect(-28, 15, 3, 20);
+    p.rect(25, 15, 3, 20);
+    
+    // Computer
+    p.fill(80);
+    p.rect(-15, -5, 30, 20);
+    p.fill(100, 200, 100);
+    p.rect(-13, -3, 26, 15);
+    
+    // Person sitting
+    p.fill(255, 220, 177);
+    p.ellipse(0, -25, 20, 20); // Head
+    p.fill(100, 150, 200);
+    p.rect(-8, -15, 16, 25); // Body
+    
+    // Arms typing
+    p.stroke(255, 220, 177);
+    p.strokeWeight(4);
+    p.line(-8, -5, -15, 5);
+    p.line(8, -5, 15, 5);
+    p.noStroke();
+  }
+
+  function drawLunchIcon() {
+    // Plate
+    p.fill(240);
+    p.stroke(100);
+    p.strokeWeight(2);
+    p.ellipse(0, 10, 50, 50);
+    p.noStroke();
+    
+    // Food
+    p.fill(255, 150, 100);
+    p.ellipse(-10, 5, 15, 15);
+    p.fill(100, 200, 100);
+    p.ellipse(10, 8, 12, 12);
+    p.fill(255, 200, 100);
+    p.ellipse(0, 15, 18, 10);
+    
+    // Fork
+    p.fill(200);
+    p.rect(-25, -5, 3, 25);
+    p.line(-28, -5, -22, -5);
+    p.line(-28, 0, -22, 0);
+    
+    // Person's head
+    p.fill(255, 220, 177);
+    p.ellipse(0, -25, 22, 22);
+    
+    // Smile
+    p.noFill();
+    p.stroke(150, 100, 100);
+    p.strokeWeight(2);
+    p.arc(0, -23, 12, 12, 0, p.PI);
+    p.noStroke();
+  }
