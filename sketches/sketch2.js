@@ -19,4 +19,35 @@ registerSketch('sk2', function (p) {
       { hour: 24, color: [25, 25, 112], label: 'Midnight', temp: 'Cold' }      // Back to midnight blue
     ];
   };};
+
+  p.draw = function () {
+    p.background(30);
+    
+    // Get current time
+    let h = p.hour();
+    let m = p.minute();
+    let s = p.second();
+    let currentTime = h + m / 60 + s / 3600; // Precise decimal hour
+    
+    // Draw the main gradient bar
+    drawGradientBar(currentTime);
+    
+    // Draw time markers
+    drawTimeMarkers();
+    
+    // Draw current time indicator
+    drawCurrentTimeIndicator(currentTime);
+    
+    // Draw digital time display
+    drawTimeDisplay(h, m, s);
+    
+    // Draw temperature label
+    drawTemperatureLabel(currentTime);
+  };
+  
+  function drawGradientBar(currentTime) {
+    let barX = 100;
+    let barY = 300;
+    let barWidth = 600;
+    let barHeight = 200;
 });
