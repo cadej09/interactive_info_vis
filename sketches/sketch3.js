@@ -1,14 +1,32 @@
 // Instance-mode sketch for tab 3
 registerSketch('sk3', function (p) {
+  let waterDrops = [];
+  
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(800, 800);
+    p.textFont('Arial');
   };
+  
   p.draw = function () {
-    p.background(240, 200, 200);
-    p.fill(180, 60, 60);
-    p.textSize(32);
-    p.textAlign(p.CENTER, p.CENTER);
-    p.text('HWK #4. B', p.width / 2, p.height / 2);
-  };
-  p.windowResized = function () { p.resizeCanvas(p.windowWidth, p.windowHeight); };
-});
+    p.background(240, 248, 255); // Light blue background
+    
+    // Get current time
+    let h = p.hour();
+    let m = p.minute();
+    let s = p.second();
+    
+    // Determine if daytime or nighttime
+    let isDaytime = (h >= 6 && h < 18);
+    
+    // Calculate progress through current phase (0 to 1)
+    let progress = 0;
+    if (isDaytime) {
+      // 6am to 6pm = 12 hours
+      progress = p.map(h + m / 60 + s / 3600, 6, 18, 0, 1);
+      progress = p.constrain(progress, 0, 1);
+    } else {
+      // 6pm to 6am (next day) = 12 hours
+      let nightHour = h >= 18 ? h : h + 24; // Convert to 18-30 scale
+      progress = p.map(nightHour + m / 60 + s / 3600, 18, 30, 0, 1);
+      progress = p.constrain(progress, 0, 1);
+    }
