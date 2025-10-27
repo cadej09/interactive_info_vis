@@ -53,3 +53,12 @@ registerSketch('sk4', function (p) {
     // Draw time display
     drawTimeDisplay(h, m, s);
   };
+
+  function findCurrentActivity(time) {
+    for (let activity of activities) {
+      if (time >= activity.start && time < activity.end) {
+        return activity;
+      }
+    }
+    return activities[0]; // Default to first activity
+  }
