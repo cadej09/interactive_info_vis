@@ -365,3 +365,41 @@ registerSketch('sk4', function (p) {
     // Similar to lunch but with different food
     drawLunchIcon();
   }
+
+
+  function drawExerciseIcon() {
+    // Person with dumbbells
+    p.fill(255, 220, 177);
+    p.ellipse(0, -20, 25, 25); // Head
+    p.fill(100, 150, 200);
+    p.rect(-10, -5, 20, 30); // Body
+    
+    // Arms with dumbbells
+    p.stroke(255, 220, 177);
+    p.strokeWeight(5);
+    p.line(-10, 0, -30, -10);
+    p.line(10, 0, 30, -10);
+    p.noStroke();
+    
+    // Dumbbells
+    p.fill(80);
+    p.rect(-35, -13, 10, 6);
+    p.rect(25, -13, 10, 6);
+    p.fill(150);
+    p.rect(-37, -15, 3, 10);
+    p.rect(-26, -15, 3, 10);
+    p.rect(25, -15, 3, 10);
+    p.rect(36, -15, 3, 10);
+    
+    // Legs
+    p.stroke(255, 220, 177);
+    p.strokeWeight(5);
+    p.line(-5, 25, -10, 40);
+    p.line(5, 25, 10, 40);
+    p.noStroke();
+    
+    // Sweat drops
+    p.fill(100, 150, 255);
+    p.ellipse(-15, -15, 5, 8);
+    p.ellipse(15, -15, 5, 8);
+  }
