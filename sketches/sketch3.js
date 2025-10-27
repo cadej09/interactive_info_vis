@@ -229,13 +229,8 @@ registerSketch('sk3', function (p) {
     p.textAlign(p.CENTER, p.CENTER);
     p.textSize(16);
     
-    let phaseText = '';
-    if (isDaytime) {
-      phaseText = 'Energy depleting through the day';
-    } else {
-      phaseText = 'Energy restoring through the night';
-    }
-    p.text(phaseText, 400, 220);
+    let phaseText = isDaytime ? 'Day Progress' : 'Night Progress';
+    p.text(phaseText, 400, 230); 
     
     // Progress bar
     let barWidth = 300;
