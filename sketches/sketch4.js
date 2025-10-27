@@ -451,3 +451,26 @@ registerSketch('sk4', function (p) {
     p.line(8, 20, 15, 15);
     p.noStroke();
   }
+
+  function drawBedIcon() {
+    // Similar to sleeping but person getting into bed
+    p.fill(139, 69, 19);
+    p.rect(-40, 20, 80, 10);
+    
+    // Person sitting on edge
+    p.fill(255, 220, 177);
+    p.ellipse(20, 0, 25, 25); // Head
+    p.fill(100, 150, 200);
+    p.rect(10, 10, 20, 20); // Body
+    
+    // Legs hanging down
+    p.stroke(255, 220, 177);
+    p.strokeWeight(5);
+    p.line(15, 30, 15, 45);
+    p.line(25, 30, 25, 45);
+    p.noStroke();
+    
+    // Moon through window
+    p.fill(220, 220, 240);
+    p.ellipse(-25, -20, 20, 20);
+  }
