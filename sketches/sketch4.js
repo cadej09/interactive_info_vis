@@ -213,3 +213,32 @@ registerSketch('sk4', function (p) {
     p.text('Z', 30, -25);
     p.text('Z', 35, -35);
   }
+
+  function drawWakingIcon() {
+    // Person stretching
+    p.fill(255, 220, 177);
+    p.ellipse(0, -20, 25, 25); // Head
+    p.fill(100, 150, 200);
+    p.rect(-10, -5, 20, 30); // Body
+    
+    // Arms stretching up
+    p.stroke(255, 220, 177);
+    p.strokeWeight(5);
+    p.line(-10, 0, -25, -25);
+    p.line(10, 0, 25, -25);
+    
+    // Legs
+    p.line(-5, 25, -10, 40);
+    p.line(5, 25, 10, 40);
+    p.noStroke();
+    
+    // Sun rays
+    p.stroke(255, 200, 0);
+    p.strokeWeight(3);
+    for (let i = 0; i < 8; i++) {
+      let angle = i * p.PI / 4;
+      p.line(35 + p.cos(angle) * 8, -35 + p.sin(angle) * 8,
+             35 + p.cos(angle) * 15, -35 + p.sin(angle) * 15);
+    }
+    p.noStroke();
+  }
