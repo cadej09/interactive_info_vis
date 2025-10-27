@@ -423,3 +423,31 @@ registerSketch('sk4', function (p) {
     p.fill(100, 150, 255);
     p.rect(-13, -23, 26, 16);
   }
+
+  function drawShowerIcon() {
+    // Shower head
+    p.fill(200);
+    p.rect(-20, -35, 40, 5);
+    p.rect(0, -35, 3, 10);
+    
+    // Water drops
+    p.fill(100, 150, 255);
+    for (let i = -3; i <= 3; i++) {
+      for (let j = 0; j < 4; j++) {
+        p.ellipse(i * 8, -20 + j * 10, 3, 6);
+      }
+    }
+    
+    // Person
+    p.fill(255, 220, 177);
+    p.ellipse(0, 5, 20, 20); // Head
+    p.fill(100, 150, 200);
+    p.rect(-8, 15, 16, 25); // Body
+    
+    // Arms
+    p.stroke(255, 220, 177);
+    p.strokeWeight(4);
+    p.line(-8, 20, -15, 15);
+    p.line(8, 20, 15, 15);
+    p.noStroke();
+  }
