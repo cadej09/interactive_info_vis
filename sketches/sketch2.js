@@ -105,6 +105,30 @@ registerSketch('sk2', function (p) {
       p.text(hourLabel, x, barY + barHeight + 20);
     }
   }
-
+function drawCurrentTimeIndicator(currentTime) {
+    let barX = 100;
+    let barY = 300;
+    let barWidth = 600;
+    let barHeight = 200;
+    
+    // Calculate x position for current time
+    let x = p.map(currentTime, 0, 24, barX, barX + barWidth);
+    
+    // Draw indicator line
+    p.stroke(255);
+    p.strokeWeight(4);
+    p.line(x, barY - 30, x, barY + barHeight + 30);
+    
+    // Draw indicator circle
+    p.fill(255);
+    p.noStroke();
+    p.ellipse(x, barY + barHeight / 2, 20, 20);
+    
+    // Draw glow effect
+    p.fill(255, 255, 255, 100);
+    p.ellipse(x, barY + barHeight / 2, 35, 35);
+    p.fill(255, 255, 255, 50);
+    p.ellipse(x, barY + barHeight / 2, 50, 50);
+  }
   
 });
