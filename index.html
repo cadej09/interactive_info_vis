@@ -234,9 +234,143 @@
 </section>
 
     <!-- Homework 4: Sketch 1 -->
-    <section id="tab4" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk4" class="sketch-container"></div>
-    </section>
+    <!-- Homework 4: Sketch C - Character Activity (FINAL) -->
+<section id="tab4" class="tab-content" role="tabpanel">
+  <div id="sketch-container-sk4" class="sketch-container"></div>
+  
+  <div id="sketch-drawing-sk4" class="sketch-evolution">
+    <!-- Sketch Narrative -->
+    <div class="sketch-narrative" aria-labelledby="sk4-narrative-title">
+      <h3 id="sk4-narrative-title">Character Activity Clock (FINAL DESIGN)</h3>
+      
+      <h4>Context</h4>
+      <p>
+        This clock is designed for anyone who experiences time through activities rather than 
+        abstract numbers—essentially everyone living a structured daily life. It's particularly 
+        relatable for students, professionals, and families who follow similar routines each day. 
+        The clock could exist as a smart home display, a mobile app widget, or interactive wall 
+        art in communal spaces like kitchens or living rooms where multiple people check the time 
+        throughout the day.
+      </p>
+      
+      <h4>Design Decisions</h4>
+      <ul>
+        <li>
+          <strong>Activity-Based Time Representation:</strong> Instead of showing hours and 
+          minutes, this clock displays what a person is typically doing at the current time—
+          sleeping, working, eating, exercising, etc. This design fundamentally questions the 
+          assumption that time should be represented numerically, instead showing time as lived 
+          experience. Each activity has a distinct color and icon, making it immediately clear 
+          what "time" it is through context rather than numbers. The 24-hour day is divided 
+          into 13 distinct activities, each with its own time slot, creating a visual story of 
+          a complete day.
+        </li>
+        <li>
+          <strong>Circular Layout with Current Activity Highlighted:</strong> All activities are 
+          arranged in a circle like a traditional clock, maintaining familiarity while completely 
+          reimagining what's displayed. The current activity expands and brightens while others 
+          fade, drawing immediate attention to "now" while still showing the full day's context. 
+          A red indicator line points to the exact current time, and the large character icon in 
+          the center performs the current activity, creating both macro (full day) and micro 
+          (current moment) views simultaneously. The background color changes based on the 
+          current activity, further immersing users in that time's context.
+        </li>
+        <li>
+          <strong>Character Icons with Story:</strong> Each activity is illustrated with a simple 
+          stick figure character performing that action—sleeping in bed with "ZZZ", sitting at a 
+          desk working, lifting dumbbells exercising, etc. These icons were designed to be 
+          immediately recognizable even at small sizes, using universal symbols (bed, computer, 
+          plate, dumbbell, shower). The character approach makes the clock feel personal and 
+          human rather than mechanical, reinforcing that time is something we experience through 
+          our bodies and actions, not just observe on a device.
+        </li>
+      </ul>
+      
+      <h4>Why This is My Final Choice</h4>
+      <p>
+        I selected this design as my final clock because it most successfully achieves the 
+        assignment's goal of questioning how time is represented. Rather than using colors, 
+        shapes, or abstract patterns to encode hours and minutes, this clock completely 
+        reimagines what we mean by "what time is it"—answering instead with what you're doing. 
+        It's the most relatable and human-centered of my designs, connecting directly to how 
+        people actually experience their days. The technical implementation was also the most 
+        challenging and rewarding, requiring careful state management, custom icon drawing 
+        functions, and thoughtful animation, which allowed me to demonstrate growth in my p5.js 
+        skills throughout this assignment.
+      </p>
+      
+      <h4>Future Work</h4>
+      <ul>
+        <li>
+          Add customization where users can define their own daily schedule with personalized 
+          activities and times, making the clock a true reflection of their unique routine 
+          rather than a generic daily schedule. Could save multiple profiles for different 
+          days of the week (weekday vs. weekend routines).
+        </li>
+        <li>
+          Implement smooth animated transitions between activities—the character could walk from 
+          one location to another when moving from "work" to "commute", or gradually close their 
+          eyes when transitioning to "sleep". Add particle effects (coffee steam, sweat drops, 
+          water drops) that activate during relevant activities.
+        </li>
+        <li>
+          Create an interactive mode where clicking on any activity jumps to that time and shows 
+          a "preview" of what your day looks like at that moment, useful for planning ahead or 
+          reflecting on your daily patterns.
+        </li>
+      </ul>
+    </div>
+
+    <h3>Sketch Evolution</h3>
+    <p class="small-note">Below are photos of my hand-drawn sketches showing the design process.</p>
+    
+    <figure>
+      <img src="images/sk4-sketch-1.jpg" alt="Character Activity Clock - Initial Sketch" />
+      <figcaption>
+        <strong>Step 1 — Initial Concept:</strong> First sketch mapping out a full 24-hour 
+        schedule with 13 distinct activities. Drew rough stick figures for each activity 
+        (sleeping, working, eating, exercising). Debated between circular and linear layout—
+        circular won because it's more familiar and shows the cyclical nature of daily routine. 
+        Noted which activities take the most time (work: 8 hours, sleep: 6 hours).
+      </figcaption>
+    </figure>
+    
+    <figure>
+      <img src="images/sk4-sketch-2.jpg" alt="Character Activity Clock - After First Feedback" />
+      <figcaption>
+        <strong>Step 2 — Refinement After First Feedback:</strong> Based on feedback, added 
+        more detail to the center display—not just the activity name but a large version of 
+        the character performing that activity. Peers suggested color-coding activities by type 
+        (work vs. leisure vs. self-care). Sketched ideas for making the current activity more 
+        prominent (larger size, glow effect, or both). Added time indicator line pointing to 
+        current position.
+      </figcaption>
+    </figure>
+    
+    <figure>
+      <img src="images/sk4-sketch-3.jpg" alt="Character Activity Clock - After Second Feedback" />
+      <figcaption>
+        <strong>Step 3 — Second Iteration:</strong> Refined icon designs after testing showed 
+        some activities were hard to distinguish (commute vs. exercise). Made icons more 
+        specific: car with motion lines for commute, dumbbells for exercise, shower head with 
+        water drops for shower. Added background color changes that reflect the current 
+        activity's mood/energy level. Sketch shows the layout more precisely with measurements.
+      </figcaption>
+    </figure>
+    
+    <figure>
+      <img src="images/sk4-sketch-4.jpg" alt="Character Activity Clock - Final Polish" />
+      <figcaption>
+        <strong>Step 4 — Final Polish:</strong> After third round of feedback, added small 
+        details to make icons more expressive: "ZZZ" above sleeping character, sweat drops 
+        during exercise, steam from coffee cup during morning routine. Refined the circle 
+        segmentation to make activity boundaries clearer. Added digital time display at top 
+        for users who still need to know exact time while appreciating the activity-based 
+        representation.
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
 
 
