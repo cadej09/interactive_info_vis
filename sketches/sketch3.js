@@ -222,3 +222,34 @@ registerSketch('sk3', function (p) {
     p.textSize(20);
     p.text(period, 400, 745);
   }
+
+   function drawPhaseLabel(isDaytime, progress) {
+    p.fill(80);
+    p.noStroke();
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(16);
+    
+    let phaseText = '';
+    if (isDaytime) {
+      phaseText = 'Energy depleting through the day';
+    } else {
+      phaseText = 'Energy restoring through the night';
+    }
+    p.text(phaseText, 400, 220);
+    
+    // Progress bar
+    let barWidth = 300;
+    let barHeight = 10;
+    let barX = 400 - barWidth / 2;
+    let barY = 240;
+    
+    // Background
+    p.noStroke();
+    p.fill(200);
+    p.rect(barX, barY, barWidth, barHeight, 5);
+    
+    // Progress
+    let progressColor = isDaytime ? p.color(255, 150, 0) : p.color(100, 150, 255);
+    p.fill(progressColor);
+    p.rect(barX, barY, barWidth * progress, barHeight, 5);
+  }
