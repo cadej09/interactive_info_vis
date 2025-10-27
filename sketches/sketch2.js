@@ -145,5 +145,32 @@ function drawCurrentTimeIndicator(currentTime) {
     let period = h >= 12 ? 'PM' : 'AM';
     p.text(period, 400, 200);
   }
+
+   function drawTemperatureLabel(currentTime) {
+    // Find current temperature feeling
+    let tempLabel = 'Cool';
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (currentTime >= colorStops[i].hour && currentTime < colorStops[i + 1].hour) {
+        tempLabel = colorStops[i].temp;
+        break;
+      }
+    }
+    
+    // Draw temperature label
+    p.fill(255);
+    p.noStroke();
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(32);
+    p.text(tempLabel, 400, 600);
+    
+    // Draw subtitle
+    p.textSize(18);
+    p.fill(200);
+    p.text('Temperature of the Day', 400, 650);
+  }
+  
+  p.windowResized = function () {
+    p.resizeCanvas(800, 800);
+  };
   
 });
