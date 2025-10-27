@@ -57,3 +57,42 @@ registerSketch('sk3', function (p) {
     updateWaterDrops(isDaytime);
     drawWaterDrops();
   };
+
+  function drawBucket(x, y, w, h, waterLevel, label) {
+    // Draw bucket outline
+    p.stroke(60);
+    p.strokeWeight(4);
+    p.noFill();
+    p.rect(x, y, w, h);
+    
+    // Draw water
+    let waterHeight = h * waterLevel;
+    p.noStroke();
+    p.fill(100, 150, 255, 200);
+    p.rect(x, y + h - waterHeight, w, waterHeight);
+    
+    // Draw water surface with waves
+    p.stroke(80, 130, 235);
+    p.strokeWeight(2);
+    p.noFill();
+    let waveY = y + h - waterHeight;
+    p.beginShape();
+    for (let i = 0; i <= w; i += 10) {
+      let wave = p.sin((p.frameCount * 0.05) + i * 0.1) * 3;
+      p.vertex(x + i, waveY + wave);
+    }
+    p.endShape();
+    
+    // Draw hour markers on bucket
+    p.stroke(100);
+    p.strokeWeight(1);
+    p.fill(100);
+    p.textAlign(p.RIGHT, p.CENTER);
+    p.textSize(12);
+    
+    for (let i = 0; i <= 4; i++) {
+      let markerY = y + (h * i / 4);
+      p.line(x - 5, markerY, x, markerY);
+      let hourLabel = (4 - i) * 3; // 12, 9, 6, 3, 0 hours
+      p.text(hourLabel + 'h', x - 10, markerY);
+    }
