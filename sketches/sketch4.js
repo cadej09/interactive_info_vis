@@ -474,3 +474,26 @@ registerSketch('sk4', function (p) {
     p.fill(220, 220, 240);
     p.ellipse(-25, -20, 20, 20);
   }
+
+  function drawTimeDisplay(h, m, s) {
+    // Digital clock display at top
+    p.fill(60);
+    p.noStroke();
+    p.textAlign(p.CENTER, p.TOP);
+    p.textSize(48);
+    p.textStyle(p.BOLD);
+    let timeString = p.nf(h, 2) + ':' + p.nf(m, 2) + ':' + p.nf(s, 2);
+    p.text(timeString, 400, 30);
+    
+    p.textSize(24);
+    p.textStyle(p.NORMAL);
+    let period = h >= 12 ? 'PM' : 'AM';
+    let displayHour = h % 12;
+    if (displayHour === 0) displayHour = 12;
+    p.text(displayHour + ':' + p.nf(m, 2) + ' ' + period, 400, 85);
+  }
+  
+  p.windowResized = function () {
+    p.resizeCanvas(800, 800);
+  };
+});
