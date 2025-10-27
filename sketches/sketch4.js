@@ -359,4 +359,9 @@ registerSketch('sk4', function (p) {
     p.strokeWeight(2);
     p.arc(0, -23, 12, 12, 0, p.PI);
     p.noStroke();
-  
+  }
+
+  function drawDinnerIcon() {
+    // Similar to lunch but with different food
+    drawLunchIcon();
+  }
