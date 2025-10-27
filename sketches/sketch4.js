@@ -150,3 +150,47 @@ registerSketch('sk4', function (p) {
     drawActivityIcon(currentActivity.icon, 0, 0, 1.5);
     p.pop();
   }
+
+  function drawActivityIcon(iconName, x, y, scale) {
+    p.push();
+    p.translate(x, y);
+    p.scale(scale);
+    
+    switch(iconName) {
+      case "sleep":
+        drawSleepingIcon();
+        break;
+      case "wake":
+        drawWakingIcon();
+        break;
+      case "morning":
+        drawMorningRoutineIcon();
+        break;
+      case "commute":
+        drawCommuteIcon();
+        break;
+      case "work":
+        drawWorkIcon();
+        break;
+      case "lunch":
+        drawLunchIcon();
+        break;
+      case "dinner":
+        drawDinnerIcon();
+        break;
+      case "exercise":
+        drawExerciseIcon();
+        break;
+      case "relax":
+        drawRelaxIcon();
+        break;
+      case "shower":
+        drawShowerIcon();
+        break;
+      case "bed":
+        drawBedIcon();
+        break;
+    }
+    
+    p.pop();
+  }
