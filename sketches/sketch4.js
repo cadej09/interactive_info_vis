@@ -114,3 +114,21 @@ registerSketch('sk4', function (p) {
       p.text(activity.name, 0, 0);
       p.pop();
     }
+
+     // Draw current time indicator
+    let timeAngle = p.map(currentTime, 0, 24, 0, p.TWO_PI) - p.HALF_PI;
+    p.stroke(255, 0, 0);
+    p.strokeWeight(4);
+    let indicatorX = p.cos(timeAngle) * (radius + 40);
+    let indicatorY = p.sin(timeAngle) * (radius + 40);
+    p.line(0, 0, indicatorX, indicatorY);
+    
+    // Draw indicator dot
+    p.fill(255, 0, 0);
+    p.noStroke();
+    p.ellipse(indicatorX, indicatorY, 15, 15);
+    
+    p.pop();
+  }
+
+  
