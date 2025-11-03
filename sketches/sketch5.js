@@ -37,3 +37,25 @@ function draw() {
     line(left, y, width - right, y);
   }
   
+  // Draw bubbles
+  noStroke();
+  for (let i = 0; i < data.length; i++) {
+    let x = map(i, 0, data.length - 1, left, width - right);
+    let y = map(data[i].salary, 0, maxSalary, bottom, top);
+    
+    // Color gradient EN → EX
+    let c = lerpColor(color(255,140,0), color(30,100,220), i/3);
+    fill(c);
+    
+    // Bubble size (optional scalability)
+    let bubbleSize = 60 + i * 20;
+    ellipse(x, y, bubbleSize, bubbleSize);
+    
+    fill(0);
+    textSize(26);
+    textAlign(CENTER);
+    text(data[i].level, x, y - bubbleSize/2 - 15);
+    
+    textSize(22);
+    text("$" + nf(data[i].salary,0,0), x, y + bubbleSize/2 + 25);
+  }
