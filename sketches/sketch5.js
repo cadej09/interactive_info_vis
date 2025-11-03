@@ -59,3 +59,24 @@ function draw() {
     textSize(22);
     text("$" + nf(data[i].salary,0,0), x, y + bubbleSize/2 + 25);
   }
+
+  // Annotation Arrow: MI → SE Jump
+  stroke(80);
+  strokeWeight(2);
+  noFill();
+  let x1 = map(1, 0, 3, left, width - right);
+  let y1 = map(88565, 0, maxSalary, bottom, top);
+  let x2 = map(2, 0, 3, left, width - right);
+  let y2 = map(123311, 0, maxSalary, bottom, top);
+  line(x1 + 40, y1 - 20, x2 - 40, y2 + 20);
+
+  noStroke();
+  textSize(24);
+  text("~ +40% Jump", (x1 + x2)/2, (y1 + y2)/2 - 10);
+
+  // Footnote
+  fill(120);
+  textSize(18);
+  textAlign(CENTER);
+  text("Data: AI Job Market 2025 (synthetic, medians, USD normalized)", width/2, height - 60);
+}
