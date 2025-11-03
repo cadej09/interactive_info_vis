@@ -370,6 +370,86 @@
     <!-- Examples -->
     <section id="tab5" class="tab-content" role="tabpanel">
       <div id="sketch-container-sk5" class="sketch-container"></div>
+      
+      <!-- HW5 Design Note -->
+      <section id="hw5-design-note" style="max-width:880px;margin:40px auto;line-height:1.55;font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+        <h1 style="font-size:28px;margin-bottom:8px;">Design Note — HW5 Narrative Visualization</h1>
+        <p style="color:#555;margin-top:0;">Visualization title: <strong>The Salary Jump That Changes AI Careers</strong></p>
+
+        <h2 style="margin-top:28px;">Why this dataset & story?</h2>
+        <p>
+          I reused my HW3 dataset, <em>Global AI Job Market &amp; Salary Trends 2025</em> (synthetic). For HW5 I limited the data to a single, clean slice:
+          <code>experience_level ∈ {EN, MI, SE, EX}</code> and the corresponding median <code>salary_usd</code> for each group (USD-normalized).
+          This framing supports a focused, ethical narrative: the most consequential pay change in AI careers happens between
+          <strong>Mid (MI) → Senior (SE)</strong>. It's actionable for students and early-career professionals who want to understand where career progression
+          yields the biggest economic return.
+        </p>
+
+        <h2 style="margin-top:22px;">Why this title?</h2>
+        <p>
+          <strong>"The Salary Jump That Changes AI Careers"</strong> signals a single insight up front: there is one jump that matters most. The title primes
+          the reader to look for an inflection rather than a smooth, linear rise. It aligns with the annotation that spotlights MI→SE (~+39%).
+        </p>
+
+        <h2 style="margin-top:22px;">Author-driven or user-driven? Genre?</h2>
+        <p>
+          The piece is <strong>author-driven</strong> (a clear thesis and a guided reading order) with a light <strong>user-driven</strong> layer for exploration:
+          hover tooltips and a toggle between <em>absolute salary</em> and <em>% change vs previous level</em>. Genre-wise, it's an explanatory
+          <strong>bubble slope</strong> (bubbles connected in sequence) with an <strong>annotation layer</strong>, i.e., a standard explanatory data-viz pattern.
+        </p>
+
+        <h2 style="margin-top:22px;">Walkthrough (what the story communicates)</h2>
+        <ol>
+          <li><strong>First read:</strong> Title + animated rise of bubbles → "salaries go up with experience."</li>
+          <li><strong>Second read:</strong> A callout line and label highlight the MI→SE jump (~+39%), establishing the thesis: <em>the Senior promotion is the inflection point</em>.</li>
+          <li><strong>Third read:</strong> Hover reveals exact medians; a toggle shows the same story in <em>rate-of-change</em> space (making the jump unambiguous).</li>
+        </ol>
+
+        <h2 style="margin-top:22px;">User feedback (to be filled after two quick interviews)</h2>
+        <p style="margin-bottom:8px;">Show the page to two people who have not seen your progress. Capture what they notice first, what they think the "point" is, and any confusion.</p>
+        <div style="border:1px solid #ddd;border-radius:8px;padding:12px;margin:10px 0;">
+          <p><strong>Interview 1 — [Name/Role]</strong></p>
+          <ul style="margin-top:6px;">
+            <li><em>What they said they saw first:</em> [e.g., "the big jump between mid and senior"]</li>
+            <li><em>What they think the story is:</em> [e.g., "Senior is the big raise; Executive still rises but not as sharply."]</li>
+            <li><em>Any confusion:</em> [e.g., "What currencies?" "Are these means or medians?"]</li>
+            <li><em>Action taken:</em> [e.g., "Kept USD label in subtitle; clarified 'medians, USD normalized' in caption."]</li>
+          </ul>
+        </div>
+        <div style="border:1px solid #ddd;border-radius:8px;padding:12px;margin:10px 0;">
+          <p><strong>Interview 2 — [Name/Role]</strong></p>
+          <ul style="margin-top:6px;">
+            <li><em>What they said they saw first:</em> […]</li>
+            <li><em>What they think the story is:</em> […]</li>
+            <li><em>Any confusion:</em> […]</li>
+            <li><em>Action taken:</em> […]</li>
+          </ul>
+        </div>
+        <p style="color:#666;margin-top:8px;">(Create one slide per interview with an image of the viz and arrow annotations showing the moments they pointed at.)</p>
+
+        <h2 style="margin-top:22px;">Design principles guiding the encoding</h2>
+        <ul>
+          <li><strong>Expressiveness:</strong> Position encodes magnitude (salary; % change), ensuring the visual variable matches the data type.</li>
+          <li><strong>Effectiveness:</strong> Horizontal sequence + connecting lines support an "experience ladder" mental model.</li>
+          <li><strong>Preattentive cues:</strong> Color gradient (orange→blue) and motion (entrance animation) guide attention to the upward trend.</li>
+          <li><strong>Annotation layer:</strong> A single, purposeful callout (MI→SE) communicates the thesis without clutter.</li>
+          <li><strong>Ethical scaling:</strong> Y-axis starts at zero in salary mode; units and medians are labeled to avoid misinterpretation.</li>
+          <li><strong>Accessibility:</strong> Labels are textual (not only color-coded); hover tooltips provide exact values.</li>
+        </ul>
+
+        <h2 style="margin-top:22px;">Clarity, hierarchy, memorability</h2>
+        <ul>
+          <li><strong>Clarity:</strong> Minimal palette; consistent units (USD); y-gridlines and caption anchor the reading.</li>
+          <li><strong>Hierarchy:</strong> Title ➝ MI→SE annotation ➝ hover/toggle details. Everything else earns its place or is removed.</li>
+          <li><strong>Memorability:</strong> A single, named insight—"the Senior jump"—paired with an annotation and motion makes the takeaway sticky.</li>
+        </ul>
+
+        <h2 style="margin-top:22px;">Deployment note</h2>
+        <p>
+          The sketch is built in <strong>p5.js instance mode</strong> and sized for an Instagram-friendly aspect (1080×1350). Keyboard <code>S</code> saves a PNG.
+          The tab is published in my class repo and linked from the site navbar as "HW5".
+        </p>
+      </section>
     </section>
 
     <section id="tab6" class="tab-content" role="tabpanel">
